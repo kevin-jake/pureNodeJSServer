@@ -31,6 +31,20 @@ app.get('/user/:name', (req, res, next) => {
 
 });
 
+app.get('/error', (req, res, next) => {
+    throw new Error(`error ito`);
+
+});
+
+// best error handling method below 
+app.get('/next', (req, res, next) => {
+    setTimeout(() =>{
+        next(new Error(`error ito`))
+        
+    }, 1000);
+});
+
+
 
 app.listen(3000);
 
