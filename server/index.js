@@ -38,7 +38,9 @@ app.use(async (req,res,next) => {
     }
 })
 
-app.use('/', routes())
+app.use('/', routes({
+    speakerservice
+}))
 
 app.use((req, res, next) => {
     return next(createError(404, 'File not found'))
